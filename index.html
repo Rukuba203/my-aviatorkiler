@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aviator Predictor Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ACTIVATION PAGE -->
+<div class="auth-container" id="activationScreen">
+
+    <div class="auth-box">
+        <h2>Enter Activation Code</h2>
+
+        <div class="input-group">
+            <input type="number" id="activationCode" placeholder="Activation Code">
+            <small class="error" id="codeError"></small>
+        </div>
+
+        <button onclick="verifyCode()">Activate</button>
+    </div>
+
+</div>
+
+<!-- MAIN APP (Hidden Until Activated) -->
+<div class="container" id="mainApp" style="display:none;">
+
+    <div class="top-bar">
+        <span>
+            Welcome, <span id="userDisplay">User</span>
+            <span id="premiumBadge" style="color:gold; font-weight:bold;"></span>
+        </span>
+
+        <div>
+            <button onclick="upgradeToPremium()" class="premium-btn">Upgrade</button>
+            <button onclick="logout()" class="logout-btn">Exit</button>
+        </div>
+    </div>
+
+    <h1>✈ Aviator Predictor Pro</h1>
+    <p class="warning">Simulation Only</p>
+
+    <h3>Select Betting Site</h3>
+
+    <div class="sites">
+        <div class="site" onclick="selectSite(this, 'Betway')">
+            <p><img src="betway.png" alt=""><br>Betway</p>
+        </div>
+
+        <div class="site" onclick="selectSite(this, 'SportyBet')">
+            <p><img src="download.jpg" alt=""><br>SportyBet</p>
+        </div>
+
+        <div class="site" onclick="selectSite(this, '1xBet')">
+            <p><img src="1x.png" alt=""><br>1xBet</p>
+        </div>
+    </div>
+
+    <div class="selected-site">
+        Selected: <span id="selectedSite">None</span>
+    </div>
+
+    <div class="result-box">
+        <div class="pattern-analysis" id="patternAnalysis">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <h2 id="prediction">--</h2>
+        <div class="loader" id="loader"></div>
+        <div class="confidence">
+            AI Confidence: <span id="confidenceValue">--</span>
+        </div>
+    </div>
+
+    <button onclick="generatePrediction()">Get Prediction</button>
+
+    <h3>Prediction History</h3>
+    <ul id="history"></ul>
+
+    <h3>🔥 Live Bets</h3>
+    <div class="live-bets" id="liveBets"></div>
+
+    <h3>💬 Live Chat</h3>
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
